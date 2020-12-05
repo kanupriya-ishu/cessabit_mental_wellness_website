@@ -1,0 +1,98 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+{% block content %}
+<nav>
+      <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <a class="navbar-brand mr-auto" href="{% url 'index' %}"><img src="{% static 'images/logo3.png' %}" height="30" width="41"></a>
+            <div class="collapse navbar-collapse" id="Navbar">
+
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'basic_app:about' %}"><span class="fa fa-info fa-lg"></span> About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'basic_app:discuss' %}"><span class="fa fa-users fa-lg"></span> Discuss</a></li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#"><span class="fa fa-list fa-lg"></span> Self-Help</a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a class="dropdown-item" href="{% url 'basic_app:articles' %}">Articles</a></li>
+                      <li><a class="dropdown-item" href="{% url 'basic_app:meditation' %}">Meditation</a></li>
+                      <li><a class="dropdown-item" href="{% url 'basic_app:quiz' %}">Quiz</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'basic_app:contact' %}"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+
+            </ul>
+            {% if user.is_authenticated %}
+            <span class="navbar-text">
+                <a href="{% url 'accounts:logout' %}" id="logoutButton">
+                    <span class="fa fa-sign-in"></span> Logout
+                </a>
+            </span>
+            {% else %}
+            <span class="navbar-text">
+                <a href="{% url 'accounts:login' %}" id="loginButton">
+                    <span class="fa fa-sign-in"></span> Login
+                </a>
+            </span>
+            {% endif %}
+
+        </div>
+        </div>
+      </nav>
+  </nav>
+
+  <header class="jumbotron vertical-center header">
+       <div class="container">
+           <div class="row row-header">
+             <div class="col-12 col-sm-4 align-self-center">
+                 <div class="text-center">
+                 <img src="{% static 'images/logo2.png' %}" class="img-fluid rounded-circle" id="logo">
+                </div>
+              </div>
+               <div class="col-12 col-sm-8 header-text">
+                   <h1>Cessabit</h1>
+                   <p>We provide help related to mental health problems for free of cost. You can discuss your problem through our "Discuss" section and if you want to feel better on your own, use our "Self-Help" section to explore different articles, meditation and quizes. We hope you feel better after exploring our website!</p>
+               </div>
+           </div>
+       </div>
+   </header>
+
+   <div class="container">
+     <div class="row row-content">
+           <div class="col-12">
+              <h3>Location Information</h3>
+           </div>
+            <div class="col-12 col-sm-4 offset-sm-1">
+                   <h5>Our Address</h5>
+                   <address style="font-size: 100%">
+                 Cessabit Services<br>
+                 Street 16, Vashi<br>
+                 Navi Mumbai<br>
+                 <i class="fa fa-phone"></i>: +91 12345 67890<br>
+                 <i class="fa fa-fax"></i>: +91 12345 67891<br>
+                 <i class="fa fa-envelope"></i>:
+                       <a href="mailto:cessabit@example.com">cessabit@example.com</a>
+              </address>
+              <div class="btn-group" role="group">
+                  <a role="button" class="btn btn-primary" href="tel:+85212345678"><i class="fa fa-phone"></i> Call</a>
+                  <a role="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
+                  <a role="button" class="btn btn-success" href="mailto:confusion@food.net"><i class="fa fa-envelope-o"></i>  Success</a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 offset-sm-1">
+                <h5>Map of our Location</h5>
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15086.924917353517!2d73.0075084813369!3d19.031561494822544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3eaaa53c4e3%3A0x9459161291e7ded5!2sTerna%20Engineering%20College!5e0!3m2!1sen!2sin!4v1607140262789!5m2!1sen!2sin" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+{% endblock %}

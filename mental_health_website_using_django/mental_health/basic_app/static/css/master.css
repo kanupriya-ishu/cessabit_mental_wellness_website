@@ -1,0 +1,54 @@
+h1{
+  color: #00000H;
+}
+.header-text{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.header-text p{
+  text-align: justify;
+}
+
+.media-body {
+  text-align: center;
+}
+
+.media-body p{
+  text-align: justify;
+}
+
+.quiz{
+  height: 15em;
+  width: 100%;
+}
+
+.read{
+  height: 15em;
+  width: 100%;
+}
+
+nav, .articlenav{
+  background-color: #574E68;
+}
+
+.articlenav{
+  background-color: #574E68;
+}
+
+.header, .footer{
+  background-color: #9689a9;
+  color: #ffffff;
+}
+
+.footer a{
+color: inherit;
+}
+
+#logo{
+  margin-top: 12%
+}
+
+.articlelink a{
+  color: black;
+}
